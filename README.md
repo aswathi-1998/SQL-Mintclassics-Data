@@ -87,3 +87,20 @@ The product is stocked but has no recorded sales in any order. Before discountin
 ├── report.pdf                   # written report with result tables
 └── README.md
 ```
+### Source and attribution
+
+The data comes from the **Mint Classics** database used in the Coursera
+guided project *Analyze Data in a Model Car Database with MySQL Workbench*.
+That database is an adapted version of
+[`classicmodels`](https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/),
+a MySQL sample database published by MySQL Tutorial, extended with a
+`warehouses` table recording each facility's current capacity utilization.
+
+All records are fictional — the company, customers, employees and
+transactions do not represent any real business.
+
+The database dump is not redistributed here. To reproduce the analysis,
+obtain the Mint Classics schema through the Coursera project, or use the
+base `classicmodels` database from the link above (note that it does not
+include the `warehouses` table, so the capacity queries will not run
+against it unmodified).
