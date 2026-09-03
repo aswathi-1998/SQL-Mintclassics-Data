@@ -29,6 +29,9 @@ MySQL sample database, eight tables:
 
 All queries are in [`mint_classics_analysis.sql`](mint_classics_analysis.sql).
 
+### ER Diagram
+<img width="791" height="801" alt="Mint_Classics_DB_ER" src="https://github.com/user-attachments/assets/586bf7a7-4edf-4bac-b51a-74a95874d8ac" />
+
 ## Approach
 
 The analysis runs in three workstreams.
