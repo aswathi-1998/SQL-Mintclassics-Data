@@ -51,6 +51,7 @@ ON p.productCode = o.productCode
 GROUP BY p.productName, p.quantityInStock
 ORDER BY  ExcessStock
 LIMIT 15;
+
 # Deficit stock products
 SELECT
 p.productName,
@@ -61,6 +62,7 @@ FROM products p LEFT JOIN orderdetails o
 ON p.productCode = o.productCode
 GROUP BY p.productName, p.quantityInStock
 HAVING  ExcessStock <0;
+
 # Top Ordered models and their excess stock
 SELECT
 p.productName,
@@ -72,6 +74,7 @@ FROM products p LEFT JOIN orderdetails o
 ON p.productCode = o.productCode
 GROUP BY p.productName, p.quantityInStock,p.productLine
 ORDER BY  quantityOrdered desc;
+
 # Action to be taken
 WITH CTE AS (
 	SELECT
@@ -96,12 +99,13 @@ CTE3 AS (
 		ELSE 50
 	END AS ExcessPctRequired
 	 FROM CTE2)
+-- ,CTE4 AS(
  SELECT * ,
  ROUND(ExcessPctRequired*quantityOrdered/100) as ExcessSugg,
  IF(ExcessPctRequired<ExcessPct,"Reduce Stock","Increase Stock") AS Action_ 
  FROM CTE3
  WHERE quantityOrdered IS NOT NULL;
- #HAVING Action_ = 'Increase Stock'; Execute this line to find those models to increase stock
+--  ) SELECT * FROM CTE4 WHERE Action_ = 'Increase Stock'; # Uncomment this and  CTE4 line to find those models to increase stock
 
 # PROFIT ANALYSIS
 #Top 15 profitable products
